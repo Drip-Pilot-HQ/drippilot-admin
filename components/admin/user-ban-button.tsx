@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { ActionButton } from '@/components/ui/action-button'
-import { banUserAction, unbanUserAction } from '@/app/actions/users'
+import { ActionButton } from "@/components/ui/action-button";
+import { banUserAction, unbanUserAction } from "@/app/actions/users";
 
 export function UserBanButton({
   userId,
   isBanned,
-  size = 'sm',
+  size = "sm",
 }: {
-  userId: string
-  isBanned: boolean
-  size?: 'sm' | 'md'
+  userId: string;
+  isBanned: boolean;
+  size?: "sm" | "md";
 }) {
   if (isBanned) {
     return (
@@ -23,7 +23,7 @@ export function UserBanButton({
         variant="success"
         size={size}
       />
-    )
+    );
   }
 
   return (
@@ -36,5 +36,5 @@ export function UserBanButton({
       variant="danger"
       size={size}
     />
-  )
+  );
 }

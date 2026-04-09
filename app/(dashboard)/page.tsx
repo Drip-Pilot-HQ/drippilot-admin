@@ -1,6 +1,14 @@
 import { getPlatformStats } from "@/lib/dal/platform";
 import { StatCard } from "@/components/ui/stat-card";
-
+import Link from "next/link";
+import {
+  ArrowRight,
+  Users,
+  Briefcase,
+  Gift,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 function fmt(cents: number) {
   return (
     "$" +
@@ -83,41 +91,93 @@ export default async function OverviewPage() {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
-          <h2 className="text-sm font-medium text-neutral-700 mb-4">
-            Quick links
-          </h2>
-          <div className="space-y-2 text-sm">
-            <a
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        {/* Quick Links Card */}
+        <div className="relative overflow-hidden bg-white border border-neutral-200/60 rounded-2xl p-6 shadow-sm group hover:shadow-md transition-shadow duration-300">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="p-2 bg-orange-100/50 rounded-lg text-orange-500">
+              <Sparkles className="w-5 h-5 stroke-[2px]" />
+            </div>
+            <h2 className="text-base font-semibold text-neutral-800 tracking-tight">
+              Quick Actions
+            </h2>
+          </div>
+
+          <div className="grid gap-3">
+            <Link
               href="/users"
-              className="flex items-center gap-2 text-neutral-500 hover:text-orange-400 transition-colors"
+              className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-orange-200 hover:bg-orange-50/30 transition-all duration-300 pointer-events-auto"
             >
-              <span className="text-orange-400">→</span> Manage users
-            </a>
-            <a
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-neutral-100 group-hover/link:bg-white flex items-center justify-center text-neutral-500 group-hover/link:text-orange-500 transition-colors shadow-sm">
+                  <Users className="w-4 h-4 stroke-[2px]" />
+                </div>
+                <span className="text-sm font-medium text-neutral-600 group-hover/link:text-neutral-900 transition-colors">
+                  Manage users
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-neutral-300 group-hover/link:text-orange-500 transition-colors group-hover/link:-translate-x-1" />
+            </Link>
+
+            <Link
               href="/workspaces"
-              className="flex items-center gap-2 text-neutral-500 hover:text-orange-500 transition-colors"
+              className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-cyan-200 hover:bg-cyan-50/30 transition-all duration-300"
             >
-              <span className="text-cyan-500">→</span> View workspaces
-            </a>
-            <a
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-neutral-100 group-hover/link:bg-white flex items-center justify-center text-neutral-500 group-hover/link:text-cyan-500 transition-colors shadow-sm">
+                  <Briefcase className="w-4 h-4 stroke-[2px]" />
+                </div>
+                <span className="text-sm font-medium text-neutral-600 group-hover/link:text-neutral-900 transition-colors">
+                  View workspaces
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-neutral-300 group-hover/link:text-cyan-500 transition-colors group-hover/link:-translate-x-1" />
+            </Link>
+
+            <Link
               href="/referrals"
-              className="flex items-center gap-2 text-neutral-500 hover:text-orange-400 transition-colors"
+              className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-orange-200 hover:bg-orange-50/30 transition-all duration-300"
             >
-              <span className="text-orange-400">→</span> Referral commissions
-            </a>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-neutral-100 group-hover/link:bg-white flex items-center justify-center text-neutral-500 group-hover/link:text-orange-500 transition-colors shadow-sm">
+                  <Gift className="w-4 h-4 stroke-[2px]" />
+                </div>
+                <span className="text-sm font-medium text-neutral-600 group-hover/link:text-neutral-900 transition-colors">
+                  Referral commissions
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-neutral-300 group-hover/link:text-orange-500 transition-colors group-hover/link:-translate-x-1" />
+            </Link>
           </div>
         </div>
-        <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
-          <h2 className="text-sm font-medium text-neutral-700 mb-2">
-            Security
-          </h2>
-          <p className="text-xs text-neutral-400 leading-relaxed">
-            All operations use the service role key server-side. Client code
-            never has access to privileged credentials. Admin role is enforced
-            at both the proxy and DAL layer on every request.
-          </p>
+
+        {/* Security Info Card */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 text-white border border-neutral-800 rounded-2xl p-6 shadow-md">
+          {/* Subtle background glow effect */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-orange-500/20 blur-[60px] rounded-full pointer-events-none" />
+
+          <div className="flex flex-col h-full relative z-10">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="p-2 bg-white/10 rounded-lg text-white backdrop-blur-sm shadow-sm ring-1 ring-white/20">
+                <ShieldCheck className="w-5 h-5 stroke-[2px]" />
+              </div>
+              <h2 className="text-base font-semibold tracking-tight text-white">
+                Platform Security
+              </h2>
+            </div>
+
+            <p className="text-[13px] text-neutral-300 leading-relaxed max-w-sm mt-auto mb-4 font-medium">
+              All operations use the service role key server-side. Client code
+              never has access to privileged credentials.
+            </p>
+
+            <div className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 w-fit">
+              <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" />
+              <span className="text-[11px] font-semibold text-green-400 uppercase tracking-wider">
+                Admin Role Enforced
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

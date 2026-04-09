@@ -1,5 +1,5 @@
-import 'server-only'
-import { createClient } from '@supabase/supabase-js'
+import "server-only";
+import { createClient } from "@supabase/supabase-js";
 
 // Service role client — never expose to client. Server use only.
 export function createAdminClient() {
@@ -11,6 +11,6 @@ export function createAdminClient() {
         autoRefreshToken: false,
         persistSession: false,
       },
-    }
-  )
+    },
+  );
 }

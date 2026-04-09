@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Drippilot Admin",
+  title: "Drip Pilot Admin",
   description: "Admin control panel",
 };
 
@@ -34,7 +34,11 @@ export default function RootLayout({
           theme="dark"
           position="bottom-right"
           toastOptions={{
-            style: { background: '#171717', border: '1px solid #262626', color: '#e5e5e5' },
+            style: {
+              background: "#171717",
+              border: "1px solid #262626",
+              color: "#e5e5e5",
+            },
           }}
         />
       </body>

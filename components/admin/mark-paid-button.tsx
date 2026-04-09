@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { ActionButton } from '@/components/ui/action-button'
-import { markCommissionPaidAction } from '@/app/actions/referrals'
+import { ActionButton } from "@/components/ui/action-button";
+import { markCommissionPaidAction } from "@/app/actions/referrals";
 
 export function MarkPaidButton({ commissionId }: { commissionId: string }) {
   return (
@@ -14,5 +14,5 @@ export function MarkPaidButton({ commissionId }: { commissionId: string }) {
       variant="primary"
       size="sm"
     />
-  )
+  );
 }

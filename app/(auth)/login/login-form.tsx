@@ -1,16 +1,23 @@
-'use client'
+"use client";
 
-import { useActionState } from 'react'
-import { loginAction } from '@/app/actions/auth'
+import { useActionState } from "react";
+import { loginAction } from "@/app/actions/auth";
 
 export function LoginForm({ urlError }: { urlError?: string }) {
-  const [state, action, pending] = useActionState(loginAction, undefined)
-  const error = state?.error ?? (urlError === 'unauthorized' ? 'Access denied. Admin accounts only.' : undefined)
+  const [state, action, pending] = useActionState(loginAction, undefined);
+  const error =
+    state?.error ??
+    (urlError === "unauthorized"
+      ? "Access denied. Admin accounts only."
+      : undefined);
 
   return (
     <form action={action} className="space-y-4">
       <div>
-        <label className="block text-xs font-medium text-neutral-600 mb-1.5" htmlFor="email">
+        <label
+          className="block text-xs font-medium text-neutral-600 mb-1.5"
+          htmlFor="email"
+        >
           Email
         </label>
         <input
@@ -25,7 +32,10 @@ export function LoginForm({ urlError }: { urlError?: string }) {
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-neutral-600 mb-1.5" htmlFor="password">
+        <label
+          className="block text-xs font-medium text-neutral-600 mb-1.5"
+          htmlFor="password"
+        >
           Password
         </label>
         <input
@@ -53,8 +63,8 @@ export function LoginForm({ urlError }: { urlError?: string }) {
         {pending && (
           <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
         )}
-        {pending ? 'Signing in…' : 'Sign in'}
+        {pending ? "Signing in…" : "Sign in"}
       </button>
     </form>
-  )
+  );
 }

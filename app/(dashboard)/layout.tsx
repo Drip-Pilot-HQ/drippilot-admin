@@ -1,10 +1,14 @@
-import { requireAdmin } from '@/lib/auth'
-import { Sidebar } from '@/components/admin/sidebar'
-import { Topbar } from '@/components/admin/topbar'
-import { Providers } from '@/components/providers'
+import { requireAdmin } from "@/lib/auth";
+import { Sidebar } from "@/components/admin/sidebar";
+import { Topbar } from "@/components/admin/topbar";
+import { Providers } from "@/components/providers";
 
-export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const admin = await requireAdmin()
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const admin = await requireAdmin();
 
   return (
     <Providers>
@@ -16,5 +20,5 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </div>
       </div>
     </Providers>
-  )
+  );
 }

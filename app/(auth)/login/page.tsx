@@ -10,7 +10,13 @@ export default async function LoginPage({ searchParams }: Props) {
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex justify-center">
-          <Image src="/logo.png" alt="Drippilot" width={80} height={80} priority />
+          <Image
+            src="/logo.png"
+            alt="Drippilot"
+            width={80}
+            height={80}
+            priority
+          />
         </div>
 
         <div className="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
