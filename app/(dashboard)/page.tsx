@@ -106,6 +106,7 @@ export default async function OverviewPage() {
           <div className="grid gap-3">
             <Link
               href="/users"
+              prefetch={true}
               className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-orange-200 hover:bg-orange-50/30 transition-all duration-300 pointer-events-auto"
             >
               <div className="flex items-center gap-3">
@@ -121,6 +122,7 @@ export default async function OverviewPage() {
 
             <Link
               href="/workspaces"
+              prefetch={true}
               className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-cyan-200 hover:bg-cyan-50/30 transition-all duration-300"
             >
               <div className="flex items-center gap-3">
@@ -136,6 +138,7 @@ export default async function OverviewPage() {
 
             <Link
               href="/referrals"
+              prefetch={true}
               className="group/link flex items-center justify-between p-3 rounded-xl border border-neutral-100 hover:border-orange-200 hover:bg-orange-50/30 transition-all duration-300"
             >
               <div className="flex items-center gap-3">

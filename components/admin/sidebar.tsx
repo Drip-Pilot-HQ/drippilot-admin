@@ -56,6 +56,7 @@ export function Sidebar() {
               <Link
                 key={href}
                 href={href}
+                prefetch={true}
                 onClick={close}
                 className={`
                   flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-[15px] font-medium transition-all duration-300 group

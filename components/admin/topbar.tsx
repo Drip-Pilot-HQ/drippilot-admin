@@ -1,7 +1,7 @@
 "use client";
 
 import { useSidebarStore } from "@/store/admin";
-import { Menu, Bell } from "lucide-react";
+import { Menu } from "lucide-react";
 
 type TopbarProps = { adminEmail: string };
 
@@ -23,11 +23,6 @@ export function Topbar({ adminEmail }: TopbarProps) {
         </h2>
       </div>
       <div className="flex items-center gap-4">
-        <button className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-colors relative">
-          <Bell className="w-5 h-5 stroke-[2px]" />
-          <span className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white" />
-        </button>
-        <div className="h-6 w-px bg-neutral-200 hidden sm:block" />
         <div className="flex items-center gap-3 cursor-pointer group px-2 py-1.5 rounded-full hover:bg-neutral-50 transition-colors">
           <div className="flex flex-col items-end hidden sm:flex">
             <span className="text-sm font-medium text-neutral-700 leading-none mb-1">
